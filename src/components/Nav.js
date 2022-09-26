@@ -19,7 +19,7 @@ function Nav (){
  }, []);
   
     return (
-    <nav className={`nav ${ setShow && 'nav__black'}`}>
+    <nav className={`nav ${ show && 'nav__black'}`}>
         <img 
             alt='Netflix logo'
             src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2880px-Netflix_2015_logo.svg.png'

@@ -12,7 +12,7 @@
     transition: all 0.5s;
 }
 
-nav__black {
+.nav__black {
     background-color: #111;
 }
 .nav__logo{
