@@ -1,8 +1,9 @@
 import React from 'react'
-import './search.css';
+import './SearchPage.css';
 import axios from '../../api/axios';
 import { useState, useEffect  } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useDebounce } from '../../hooks/useDebounce';
 
 function SearchPage() {
 
@@ -14,13 +15,14 @@ function SearchPage() {
 
   let query = useQuery();
   const searchTerm = query.get('q');
-  console.log('searchTerm', searchTerm);
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+
   
   useEffect(() => {
-    if(searchTerm){
-      fetchSearchMovie(searchTerm);
+    if(debouncedSearchTerm){
+      fetchSearchMovie(debouncedSearchTerm);
     }
-  }  , [searchTerm])
+  }  , [debouncedSearchTerm])
 
   const fetchSearchMovie = async () => { 
     try {
@@ -42,7 +44,7 @@ function SearchPage() {
             const movieImageUrl = 
             'https://image.tmdb.org/t/p/w500' + movie.backdrop_path
             return (
-              <div className='movie'>
+              <div className='movie' key={movie.id}>
                 <div
                   className='movie__column-poster'
                 >
@@ -57,7 +59,7 @@ function SearchPage() {
       </section>
     ) : <section className='no-results'>
       <div className='no-results__text'>
-        <p> no results</p>
+        <p> no results for {debouncedSearchTerm} </p>
       </div>
     </section>
   }
