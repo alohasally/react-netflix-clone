@@ -2,11 +2,11 @@ import React from 'react'
 import './SearchPage.css';
 import axios from '../../api/axios';
 import { useState, useEffect  } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useDebounce } from '../../hooks/useDebounce';
 
 function SearchPage() {
-
+  const navigate = useNavigate();
   const [searchResults, setSearchResults] = useState([])
 
   const useQuery = () => {
@@ -46,6 +46,7 @@ function SearchPage() {
             return (
               <div className='movie' key={movie.id}>
                 <div
+                  onClick={()=> navigate(`/${movie.id}`)}
                   className='movie__column-poster'
                 >
                   <img
