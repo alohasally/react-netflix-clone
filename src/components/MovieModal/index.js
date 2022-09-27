@@ -1,6 +1,7 @@
 import React from 'react'
 import './MovieModal.css';
 
+
 function MovieModal({
     backdrop_path,
     title,
@@ -28,7 +29,11 @@ function MovieModal({
                         <span className='modal__user__perc'>
                             100% for you 
                        </span>
+                       {release_date ? release_date : first_air_date}
                     </p>
+                    <h2 className='modal__title'>{title ? title : name }</h2>
+                    <p className='modal__overview'> Rate : {vote_average}</p>
+                    <p className='moda__overview'>{overview}</p>
                 </div> 
             </div>
         </div>
@@ -36,4 +41,4 @@ function MovieModal({
   )
 }
 
-export default MovieModal
+export default MovieModal;

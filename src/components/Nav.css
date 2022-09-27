@@ -27,3 +27,16 @@
     width: 30px;
     object-fit: contain;
 }
+
+.nav__input{
+    width: 200px;
+    height: 30px;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: rgba(0, 0, 0, 0.605);
+    color: #fff;
+    padding: 5px;
+    border: none;
+    text-align: center;
+}
