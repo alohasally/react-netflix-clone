@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import useOnClickOutside from '../../hooks/useOnClickOutside';
 import './MovieModal.css';
 
 
@@ -12,10 +13,16 @@ function MovieModal({
     vote_average,
     setModalOpen
 }) {
+
+    const ref = useRef();
+    useOnClickOutside(ref, () => {
+        setModalOpen(false);
+    })
+
   return (
     <div className='presentation'>
         <div className='wrapper-modal'>
-            <div className='modal'>
+            <div className='modal' ref={ref}>
                 <span className='modal-close' onClick={() => setModalOpen(false)}>
                     X
                 </span>
@@ -24,16 +31,16 @@ function MovieModal({
                     src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
                     alt='modal__poster-img'
                 />
-                <div className='modal__content'>
-                    <p className='modal__details'>
+                <div className='modal__contents'>
+                    <p className='modal__detail'>
                         <span className='modal__user__perc'>
-                            100% for you 
-                       </span>
+                           {`${Math.floor(vote_average * 10)}`}% for you 
+                       </span> &nbsp; &nbsp; 
                        {release_date ? release_date : first_air_date}
                     </p>
                     <h2 className='modal__title'>{title ? title : name }</h2>
-                    <p className='modal__overview'> Rate : {vote_average}</p>
-                    <p className='moda__overview'>{overview}</p>
+                    <p className='modal__overview'> Rate : {vote_average.toFixed(1)}</p>
+                    <p className='modal__story'>{overview}</p>
                 </div> 
             </div>
         </div>

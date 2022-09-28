@@ -2,3 +2,25 @@
     width: 100%;
     height: auto;
   }
+
+.modal__content {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 80rem;
+}
+.modal__title{
+  color: #fff;
+  transform: translateY(-50px);
+  }
+.modal__overview{
+  margin: 20px 40px;
+  color: #fff;
+  transform: translateY(-50px);
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  left: 50%;
+  transform: translate();
+}

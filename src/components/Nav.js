@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Nav.css'
+import MainPage from '../pages/MainPage'
+import { NavLink } from 'react-router-dom'
 
 export default function Nav (){
   
@@ -27,13 +29,15 @@ export default function Nav (){
   }
     return (
     <nav className={`nav ${ show && 'nav__black'}`}>
+      <NavLink to={MainPage} >
         <img 
             alt='Netflix logo'
+           
             src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2880px-Netflix_2015_logo.svg.png'
             className='nav__logo'
             onClick={()=> window.location.reload()}
         />
-
+      </NavLink>
       <input value={searchValue} 
       onChange={handleChange} 
       className='nav__input' 

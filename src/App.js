@@ -28,7 +28,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           {/* <Route path={`${process.env.PUBLIC_URL}/`} element={<MainPage />} /> */}
           <Route path='/' element={<MainPage />} />
-          <Route path=':movieID' element={<DetailPage />} />
+          <Route path=':movieId' element={<DetailPage />} />
           <Route path='search' element={<SearchPage />} />
         </Route>
       </Routes>

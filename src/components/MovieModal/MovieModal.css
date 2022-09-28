@@ -1,3 +1,4 @@
+
 .modal {
     position: relative;
     max-width: 800px;
@@ -13,25 +14,39 @@
     width: 100%;
     height: auto;
   }
-  .modal__content {
+  .modal__contents {
     padding: 40px;
     color: white;
+    text-align: center;
   }
   .modal__title {
     padding: 0;
     font-size: 40px;
-    margin: 16px 0;
+    margin-top: 30px;
   }
-  .modal__details {
+  .modal__detail {
     font-weight: 600;
     font-size: 18px;
+    width: 400px;
+    margin: 0 auto;
+    transform: translateY(-30px);
   }
   .modal__overview {
     font-size: 20px;
     line-height: 1.5;
+    padding-top: 10px;
   }
-  .modal__user-perc {
+  .modal__story {
+    font-size: 18px;
+    line-height: 1.5;
+    padding: 0 20px;
+    text-align: center;
+    max-width: 800px;
+
+  }
+  .modal__user__perc {
     color: #46d369;
+    transform: translateY(-50px);
   }
   .modal::-webkit-scrollbar {
     display: none;
